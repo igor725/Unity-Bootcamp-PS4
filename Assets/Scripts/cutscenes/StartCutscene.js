@@ -54,10 +54,10 @@ class StartCutscene extends MonoBehaviour
         }
 
 		GetComponent.<Animation>().Play("intro_cutscene_1");
-		thirdPersonCamera.active = false;
-		cutsceneCamera1.active = true;
+		thirdPersonCamera.SetActive(false);
+		cutsceneCamera1.SetActive(true);
         cutsceneCamera1.GetComponent.<Camera>().enabled = true;
-		cutsceneCamera2.active = true;
+		cutsceneCamera2.SetActive(true);
 		loopFinished = false;
 		loading = false;
 		playedPoint = false;
@@ -89,10 +89,10 @@ class StartCutscene extends MonoBehaviour
 		GetComponent.<Animation>()["intro_cutscene_2"].wrapMode = WrapMode.Loop;
 		GetComponent.<Animation>().Play("intro_cutscene_2");
 
-		thirdPersonCamera.active = true;
+		thirdPersonCamera.SetActive(true);
         thirdPersonCamera.GetComponent.<Camera>().enabled = true;
-		cutsceneCamera1.active = false;
-		cutsceneCamera2.active = false;
+		cutsceneCamera1.SetActive(false);
+		cutsceneCamera2.SetActive(false);
 
         var go : GameObject = GameObject.Find("start_terrain");
         var terrain : Terrain = go.GetComponent("Terrain") as Terrain;
@@ -161,7 +161,7 @@ class StartCutscene extends MonoBehaviour
             forestProgress = con.progress;
         }
 
-        if(!loading && thirdPersonCamera.active)
+        if(!loading && thirdPersonCamera.activeSelf)
         {
             if(sarge != null)
                 {

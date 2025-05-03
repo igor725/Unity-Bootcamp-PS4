@@ -40,7 +40,7 @@ class SoldierTarget extends MonoBehaviour
 	
 	function Update()
 	{	
-		if(!soldierCam.gameObject.active) 
+		if(!soldierCam.gameObject.activeSelf) 
 		{
 			gui.color = new Color(0.5, 0.5, 0.5, 0.0);
 			return;

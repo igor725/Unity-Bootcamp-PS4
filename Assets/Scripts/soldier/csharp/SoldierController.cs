@@ -34,7 +34,6 @@ public class SoldierController : PausableBehaviour
     // Private variables
 
     private Transform soldierTransform;
-    private CharacterController controller;
     private HeadLookController headLookController;
     private CharacterMotor motor;
 
@@ -68,7 +67,6 @@ public class SoldierController : PausableBehaviour
         aim = false;
         reloading = false;
 
-        controller = GetComponent<CharacterController>();
         motor = GetComponent<CharacterMotor>();
     }
 

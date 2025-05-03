@@ -12,7 +12,7 @@ enum DofQualitySetting {
 }
 
 public var resolution : DofResolutionSetting = DofResolutionSetting.Normal;
-public var quality : DofQualitySetting = DofQualitySetting.High;
+public var quality : DofQualitySetting = DofQualitySetting.Medium;
 
 public var focalZDistance : float = 0.0;
 public var focalZStart : float = 0.0;

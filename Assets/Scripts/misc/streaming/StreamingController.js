@@ -178,9 +178,9 @@ class StreamingController extends MonoBehaviour
                             cutsceneController = auxGO.GetComponent("StartCutscene") as StartCutscene;
                             helicopterGO = cutsceneController.heliRef.gameObject;
                             if(cutsceneController.blurRefBack)
-                            	cutsceneController.blurRefBack.gameObject.active = false;
+                            	cutsceneController.blurRefBack.gameObject.SetActive(false);
                             if(cutsceneController.blurRef)
-                            	cutsceneController.blurRef.gameObject.active = false;
+                            	cutsceneController.blurRef.gameObject.SetActive(false);
                         }
 
                         if(!started) 

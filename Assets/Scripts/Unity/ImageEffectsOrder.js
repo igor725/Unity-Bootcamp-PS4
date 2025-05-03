@@ -5,7 +5,7 @@
 private var _tex : RenderTexture[] = new RenderTexture[2]; 
 
 function OnEnable () {
-	if (!SystemInfo.supportsImageEffects || !SystemInfo.supportsRenderTextures)
+	if (!SystemInfo.supportsImageEffects)
 		enabled = false;
 }
 

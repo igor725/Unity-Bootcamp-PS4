@@ -53,7 +53,7 @@ class DistanceFade extends MonoBehaviour
 	
 	function Update()
 	{
-		if(!soldierRef.gameObject.active) return;
+		if(!soldierRef.gameObject.activeSelf) return;
 		if(maxDistance <= 0.0) return;
 		
 		count = 0;

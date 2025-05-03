@@ -7,11 +7,11 @@ public class HeadLookController : MonoBehaviour
     {
         public Transform firstTransform;
         public Transform lastTransform;
-        public float thresholdAngleDifference;
-        public float bendingMultiplier;
-        public float maxAngleDifference;
-        public float maxBendingAngle;
-        public float responsiveness;
+		public float thresholdAngleDifference = 0.0f;
+		public float bendingMultiplier = 0.0f;
+		public float maxAngleDifference = 0.0f;
+		public float maxBendingAngle = 0.0f;
+        public float responsiveness = 0.0f;
         [HideInInspector] public float angleH;
         [HideInInspector] public float angleV;
         [HideInInspector] public Vector3 dirUp;

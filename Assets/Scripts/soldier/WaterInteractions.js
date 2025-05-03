@@ -84,7 +84,7 @@ class WaterInteractions extends MonoBehaviour
 	
 	function Update()
 	{
-		if(!soldier.gameObject.active) return;
+		if(!soldier.gameObject.activeSelf) return;
 		
 		lastPositon = currentPosition;
 		currentPosition = new Vector3(soldier.position.x, 0.0, soldier.position.z);

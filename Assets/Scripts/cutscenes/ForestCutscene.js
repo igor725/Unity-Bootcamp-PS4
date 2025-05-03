@@ -122,7 +122,7 @@ class ForestCutscene extends MonoBehaviour
 		
 		played = true;
 		
-		gameObject.SetActiveRecursively(true);
+		gameObject.SetActive(true);
 		
 		SendMessageUpwards("CutsceneStart", SendMessageOptions.DontRequireReceiver);
 		

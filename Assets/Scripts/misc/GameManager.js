@@ -39,7 +39,7 @@ class GameManager extends MonoBehaviour
 
             if(auxT.name == "Cutscene")
             {
-                if(auxT.gameObject.active)
+                if(auxT.gameObject.activeSelf)
                 {
                     hasCutscene = true;
                     break;
@@ -55,7 +55,7 @@ class GameManager extends MonoBehaviour
 	
 	function CutsceneStart()
 	{
-		gamePlaySoldier.SetActiveRecursively(false);
+		gamePlaySoldier.SetActive(false);
 	}
 	
 	function Update()
@@ -103,9 +103,9 @@ class GameManager extends MonoBehaviour
 
         if(gamePlaySoldier != null)
         {
-            if(!gamePlaySoldier.active)
+            if(!gamePlaySoldier.activeSelf)
             {
-		        gamePlaySoldier.SetActiveRecursively(true);
+		        gamePlaySoldier.SetActive(true);
             }
         }
 

@@ -78,9 +78,9 @@ class DownChoperCutscene extends MonoBehaviour
 				}
 			}
 
-            if(windZone.active)
+            if(windZone.activeSelf)
             {
-                windZone.active = false;
+                windZone.SetActive(false);
             }
 
 			GetComponent.<Animation>()["heli_rapel_cutscene"].speed = 0.0;
@@ -113,9 +113,9 @@ class DownChoperCutscene extends MonoBehaviour
 		}
 		else
 		{
-            if(!windZone.active)
+            if(!windZone.activeSelf)
             {
-                windZone.active = true;
+                windZone.SetActive(true);
             }
 
 			if(GetComponent.<Animation>()["heli_rapel_cutscene"].speed < 1.0)
@@ -224,9 +224,9 @@ class DownChoperCutscene extends MonoBehaviour
 			}
 		}
 		
-		soldier.SetActiveRecursively(false);
-		soldierWeapon.SetActiveRecursively(false);
-		cutsceneCamera.SetActiveRecursively(false);
+		soldier.SetActive(false);
+		soldierWeapon.SetActive(false);
+		cutsceneCamera.SetActive(false);
 		
 		SendMessageUpwards("StartGame");
 		

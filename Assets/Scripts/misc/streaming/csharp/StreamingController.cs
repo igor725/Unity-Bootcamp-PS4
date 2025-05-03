@@ -67,7 +67,6 @@ public class StreamingController : PausableBehaviour
 
     private WWW con;
     static public string baseAddress;
-    private AssetBundle auxBundle;
 
     private float helicopterProgress;
     private float pilotProgress;
@@ -145,7 +144,6 @@ public class StreamingController : PausableBehaviour
                 {
                     if (con.isDone)
                     {
-                        auxBundle = con.assetBundle;
                         helicopterProgress = 1.0f;
                         currentOp = Application.LoadLevelAdditiveAsync("demo_start_cutscene_helicopter");
 
@@ -190,9 +188,9 @@ public class StreamingController : PausableBehaviour
                             cutsceneController = auxGO.GetComponent<StartCutscene>();
                             helicopterGO = cutsceneController.heliRef.gameObject;
                             if (cutsceneController.blurRefBack)
-                                cutsceneController.blurRefBack.gameObject.active = false;
+                                cutsceneController.blurRefBack.gameObject.SetActive(false);
                             if (cutsceneController.blurRef)
-                                cutsceneController.blurRef.gameObject.active = false;
+                                cutsceneController.blurRef.gameObject.SetActive(false);
                         }
 
                         if (!started)
@@ -216,7 +214,6 @@ public class StreamingController : PausableBehaviour
                     {
                         if (con.isDone)
                         {
-                            auxBundle = con.assetBundle;
                             pilotProgress = 1.0f;
                             currentOp = Application.LoadLevelAdditiveAsync("demo_start_cutscene_pilot");
 
@@ -298,7 +295,6 @@ public class StreamingController : PausableBehaviour
                         {
                             if (con.isDone)
                             {
-                                auxBundle = con.assetBundle;
                                 readyToLoadTerrain = true;
                                 terrainProgress = 1.0f;
                                 con.Dispose();
@@ -689,7 +685,6 @@ public class StreamingController : PausableBehaviour
             {
                 if (con != null && con.isDone)//Application.GetStreamProgressForLevel("demo_start_cutscene_" + next) >= 1.0)
                 {
-                    auxBundle = con.assetBundle;
 
                     currentOp = Application.LoadLevelAdditiveAsync("demo_start_cutscene_" + next);
 

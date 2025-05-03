@@ -11,7 +11,7 @@ class CutsceneManager extends MonoBehaviour
 	{
 		if(forestCutscene != null)
 		{
-			forestCutscene.gameObject.SetActiveRecursively(true);
+			forestCutscene.gameObject.SetActive(true);
 		}
 	}
 	

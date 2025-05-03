@@ -93,7 +93,7 @@ class DistanceDisable extends MonoBehaviour
 		{
 			cObject = objects[i];
 			
-			if(!cObject.gameObject.active) continue;
+			if(!cObject.gameObject.activeSelf) continue;
 			
 			cObject.distance = (cObject.transform.position - soldierPos).sqrMagnitude;
 			

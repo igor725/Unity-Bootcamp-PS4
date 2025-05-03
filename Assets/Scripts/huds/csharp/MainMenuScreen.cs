@@ -452,7 +452,6 @@ public class MainMenuScreen : PausableBehaviour
     {
         GetSceneRef();
 
-        int currentQualityLevel = (int)QualitySettings.currentLevel;
         var originalColor = GUI.color;
 
         if (sceneConf == null) return;

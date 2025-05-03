@@ -99,7 +99,7 @@ public class GameQualitySettings : PausableBehaviour {
 
 		InitializeSceneSettings();
 
-		InitializeQualitySettings((int)QualitySettings.currentLevel);
+		InitializeQualitySettings((int)QualitySettings.GetQualityLevel());
 
 		InitializeCameraSettings();
 
@@ -161,7 +161,7 @@ public class GameQualitySettings : PausableBehaviour {
 
 				if (ambientParticleObjects[k].name == "dust" || ambientParticleObjects[k].name == "leaves") continue;
 
-				ambientParticleObjects[k].SetActiveRecursively(ambientParticles);
+				ambientParticleObjects[k].SetActive(ambientParticles);
 			}
 		}
 
@@ -182,7 +182,7 @@ public class GameQualitySettings : PausableBehaviour {
 				var setting = _ambientParticleObjectSettings[k];
 
 				if (ambientParticleObjects[k] == null) continue;
-				if (!ambientParticleObjects[k].active) continue;
+				if (!ambientParticleObjects[k].activeSelf) continue;
 
 				ambientParticleObjects[k].GetComponent<ParticleEmitter>().minSize = setting.minSize * _particleQualityMultiplier;
 				ambientParticleObjects[k].GetComponent<ParticleEmitter>().maxSize = setting.maxSize * _particleQualityMultiplier;
@@ -199,7 +199,7 @@ public class GameQualitySettings : PausableBehaviour {
 		//If we are running the game first time, we need to take the current game quality settings
 		initializedGameSettings = true;
 
-		overallQuality = (int)QualitySettings.currentLevel;
+		overallQuality = (int)QualitySettings.GetQualityLevel();
 
 		shadowDistance = QualitySettings.shadowDistance;
 
@@ -391,7 +391,7 @@ public class GameQualitySettings : PausableBehaviour {
 		var lod  = 2;
 		var billboards = 70.0f;
 		var mTrees  = 60;
-		var fPError = 5.0f;
+		// var fPError = 5.0f;
 
 		switch (qualityLevel)
 		{
@@ -406,7 +406,7 @@ public class GameQualitySettings : PausableBehaviour {
 				lod = 2;
 				billboards = 10.0f;
 				mTrees = 5;
-				fPError = 50.0f;
+				// fPError = 50.0f;
 				currentRenderingPath = RenderingPath.VertexLit;
 				currentDepthTextureMode = DepthTextureMode.None;
 				colorCorrection = false;
@@ -429,7 +429,7 @@ public class GameQualitySettings : PausableBehaviour {
 				lod = 2;
 				billboards = 22.0f;
 				mTrees = 16;
-				fPError = 41.0f;
+				// fPError = 41.0f;
 				currentRenderingPath = RenderingPath.Forward;
 				currentDepthTextureMode = DepthTextureMode.None;
 				colorCorrection = true;
@@ -452,7 +452,7 @@ public class GameQualitySettings : PausableBehaviour {
 				lod = 1;
 				billboards = 34.0f;
 				mTrees = 27;
-				fPError = 32.0f;
+				// fPError = 32.0f;
 				currentRenderingPath = RenderingPath.Forward;
 				currentDepthTextureMode = DepthTextureMode.None;
 				colorCorrection = true;
@@ -475,7 +475,7 @@ public class GameQualitySettings : PausableBehaviour {
 				lod = 1;
 				billboards = 46.0f;
 				mTrees = 38;
-				fPError = 23.0f;
+				// fPError = 23.0f;
 				currentRenderingPath = RenderingPath.Forward;
 				currentDepthTextureMode = DepthTextureMode.None;
 				colorCorrection = true;
@@ -498,7 +498,7 @@ public class GameQualitySettings : PausableBehaviour {
 				lod = 0;
 				billboards = 58.0f;
 				mTrees = 49;
-				fPError = 14.0f;
+				// fPError = 14.0f;
 				currentRenderingPath = RenderingPath.DeferredLighting;
 				currentDepthTextureMode = DepthTextureMode.Depth;
 				colorCorrection = true;
@@ -521,7 +521,7 @@ public class GameQualitySettings : PausableBehaviour {
 				lod = 0;
 				billboards = 70.0f;
 				mTrees = 60;
-				fPError = 5.0f;
+				// fPError = 5.0f;
 				currentRenderingPath = RenderingPath.DeferredLighting;
 				currentDepthTextureMode = DepthTextureMode.Depth;
 				colorCorrection = true;
@@ -553,9 +553,9 @@ public class GameQualitySettings : PausableBehaviour {
 
 	private void UpdateGameQuality()
 	{
-		if ((int)QualitySettings.currentLevel != overallQuality)
+		if ((int)QualitySettings.GetQualityLevel() != overallQuality)
 		{
-			QualitySettings.currentLevel =(QualityLevel)overallQuality;
+			QualitySettings.SetQualityLevel(overallQuality);
 
 			initializedGameSettings = false;
 
@@ -650,7 +650,7 @@ public class GameQualitySettings : PausableBehaviour {
 
 					if (ambientParticleObjects[k].name == "dust" || ambientParticleObjects[k].name == "leaves") continue;
 
-					ambientParticleObjects[k].SetActiveRecursively(ambientParticles);
+					ambientParticleObjects[k].SetActive(ambientParticles);
 				}
 			}
 		}

@@ -50,7 +50,6 @@ public class BulletMarkManager : MonoBehaviour
 
         float pushDistance = 0.0001f;
         int length = instance.marks.Count;
-        int sideMarks = 0;
         for (int i = 0; i < length; i++)
         {
             auxGO = instance.marks[i] as GameObject;

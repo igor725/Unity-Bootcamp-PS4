@@ -26,7 +26,6 @@ public class StartCutscene : PausableBehaviour
 	public Transform blurRef;
 	public Transform blurRefBack;
 
-    private AssetBundle auxBundle;
     private WWW con;
 
     static public float forestProgress;
@@ -53,10 +52,10 @@ public class StartCutscene : PausableBehaviour
         }
 
         GetComponent<Animation>().Play("intro_cutscene_1");
-        thirdPersonCamera.active = false;
-        cutsceneCamera1.active = true;
+        thirdPersonCamera.SetActive(false);
+        cutsceneCamera1.SetActive(true);
         cutsceneCamera1.GetComponent<Camera>().enabled = true;
-        cutsceneCamera2.active = true;
+        cutsceneCamera2.SetActive(true);
         loopFinished = false;
         loading = false;
         playedPoint = false;
@@ -88,10 +87,10 @@ public class StartCutscene : PausableBehaviour
         GetComponent<Animation>()["intro_cutscene_2"].wrapMode = WrapMode.Loop;
         GetComponent<Animation>().Play("intro_cutscene_2");
 
-        thirdPersonCamera.active = true;
+        thirdPersonCamera.SetActive(true);
         thirdPersonCamera.GetComponent<Camera>().enabled = true;
-        cutsceneCamera1.active = false;
-        cutsceneCamera2.active = false;
+        cutsceneCamera1.SetActive(false);
+        cutsceneCamera2.SetActive(false);
 
         var go = GameObject.Find("start_terrain");
         var terrain = go.GetComponent("Terrain") as Terrain;
@@ -160,7 +159,7 @@ public class StartCutscene : PausableBehaviour
             forestProgress = con.progress;
         }
 
-        if (!loading && thirdPersonCamera.active)
+		if (!loading && thirdPersonCamera.activeSelf)
         {
             if (sarge != null)
             {
@@ -190,7 +189,6 @@ public class StartCutscene : PausableBehaviour
             {
                 if (con.isDone)
                 {
-                    auxBundle = con.assetBundle;
 
                     forestProgress = 1.0f;
 

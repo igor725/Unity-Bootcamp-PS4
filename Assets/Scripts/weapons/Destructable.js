@@ -14,7 +14,7 @@ class Destructable extends MonoBehaviour
 			{
 				t = transform.GetChild(i);
 				t.parent = null;
-				t.gameObject.active = true;
+				t.gameObject.SetActive(true);
 				
 				if(t.GetComponent.<Renderer>() != null)
 				{

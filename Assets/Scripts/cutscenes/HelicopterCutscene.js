@@ -28,7 +28,7 @@ class HelicopterCutscene extends MonoBehaviour
 		
 		for(var t : Transform in transform)
 		{
-			t.gameObject.SetActiveRecursively(false);
+			t.gameObject.SetActive(false);
 			childActive = false;
 		}
 		
@@ -83,7 +83,7 @@ class HelicopterCutscene extends MonoBehaviour
 		{
 			for(var t : Transform in transform)
 			{
-				t.gameObject.SetActiveRecursively(true);
+				t.gameObject.SetActive(true);
 				childActive = true;
 			}
 		}
@@ -91,27 +91,27 @@ class HelicopterCutscene extends MonoBehaviour
 		switch(step)
 		{
 			case 0:
-				inChopperCamera.SetActiveRecursively(false);
+				inChopperCamera.SetActive(false);
 				GetComponent.<Animation>().Play("heli_start_animation");
 				coleague.GetComponent.<Animation>().CrossFade("CS_ColeagueIdle");
 				break;
 			case 1:
-				inChopperCamera.SetActiveRecursively(true);
-				cutsceneCamera.SetActiveRecursively(false);
-				soldier.SetActiveRecursively(false);
+				inChopperCamera.SetActive(true);
+				cutsceneCamera.SetActive(false);
+				soldier.SetActive(false);
 				GetComponent.<Animation>().Play("heli_load_animation");
 				coleague.GetComponent.<Animation>().CrossFade("CS_ColeagueIdle");
 				break;
 			case 2:
-				inChopperCamera.SetActiveRecursively(true);
-				cutsceneCamera.SetActiveRecursively(false);
-				soldier.SetActiveRecursively(false);
+				inChopperCamera.SetActive(true);
+				cutsceneCamera.SetActive(false);
+				soldier.SetActive(false);
 				coleague.GetComponent.<Animation>().CrossFade("CS_Pointing");
 				break;
 			case 3:
-				inChopperCamera.SetActiveRecursively(false);
-				cutsceneCamera.SetActiveRecursively(true);
-				soldier.SetActiveRecursively(true);
+				inChopperCamera.SetActive(false);
+				cutsceneCamera.SetActive(true);
+				soldier.SetActive(true);
 				coleague.GetComponent.<Animation>().CrossFade("CS_ColeagueIdle");
 				soldierWeapon.transform.parent = weaponAnimation.transform.GetChild(0);
 				soldierWeapon.transform.localPosition = Vector3.zero;

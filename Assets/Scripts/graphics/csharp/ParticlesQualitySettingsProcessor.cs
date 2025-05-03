@@ -62,6 +62,9 @@ public class ParticlesQualitySettingsProcessor : IGameQualitySettingsProcessor
 
     public void ApplySettings(GameQualityService gameQualityService)
     {
+
+		// TODO: Replace properties from emitter to system
+		/*
         float particleQualityMultiplier = particlesQualitySettingsData.particleQualityMultiplier;
         var ambientParticleObjects = particlesQualitySettingsData.particleSystems;
 
@@ -73,11 +76,11 @@ public class ParticlesQualitySettingsProcessor : IGameQualitySettingsProcessor
             if (!ambientParticleObjects[k].gameObject.activeSelf) continue;
 
             ParticleSystem particle = ambientParticleObjects[k];
-            // TODO: Replace properties from emitter to system
-            //particle.minSize = setting.minSize * particleQualityMultiplier;
-            //particle.maxSize = setting.maxSize * particleQualityMultiplier;
-            //particle.minEmission = setting.minEmission * particleQualityMultiplier;
-            //particle.maxEmission = setting.maxEmission * particleQualityMultiplier;
+            particle.minSize = setting.minSize * particleQualityMultiplier;
+            particle.maxSize = setting.maxSize * particleQualityMultiplier;
+            particle.minEmission = setting.minEmission * particleQualityMultiplier;
+            particle.maxEmission = setting.maxEmission * particleQualityMultiplier;
         }
+        */
     }
 }

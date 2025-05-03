@@ -452,7 +452,7 @@ class MainMenuScreen extends MonoBehaviour
 	{
 		GetSceneRef();
 		
-        var currentQualityLevel : int = QualitySettings.currentLevel;
+        var currentQualityLevel : int = QualitySettings.GetQualityLevel();
         var originalColor : Color = GUI.color;
 
 		if(sceneConf == null) return;

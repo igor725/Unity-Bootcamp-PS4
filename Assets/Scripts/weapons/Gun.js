@@ -266,7 +266,7 @@ class Gun extends MonoBehaviour
 		
 		var projectile : GameObject = GameObject.Instantiate(projectilePrefab, startPosition, Quaternion.identity);
 		
-		var grenadeObj : Grenade = projectile.GetComponent("Grenade") as Grenade;
+		var grenadeObj : Grenade = projectile.GetComponent.<Grenade>() as Grenade;
 		grenadeObj.soldierCamera = soldierCamera;
 		
 		projectile.transform.rotation = Quaternion.LookRotation(camRay.direction);
@@ -429,8 +429,8 @@ class Gun extends MonoBehaviour
 		if(timerToCreateDecal < 0.0 && hit.collider.tag != "water")
 		{
 			go = GameObject.Instantiate(bulletMark, hit.point, Quaternion.FromToRotation(Vector3.forward, -hit.normal));
-			var bm : BulletMarks = go.GetComponent("BulletMarks");
-			bm.GenerateDecal(hitType, hit.collider.gameObject);
+			var bm : BulletMarks = go.GetComponent.<BulletMarks>();
+			if (bm) bm.GenerateDecal(hitType, hit.collider.gameObject);
 			timerToCreateDecal = 0.02;
 		}
 	}

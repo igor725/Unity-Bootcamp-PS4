@@ -120,8 +120,8 @@ class GameQualitySettings extends MonoBehaviour
 		
 		InitializeSceneSettings();
 
-		InitializeQualitySettings(QualitySettings.currentLevel);
-		
+		InitializeQualitySettings(QualitySettings.GetQualityLevel());
+
 		InitializeCameraSettings();
 		
 		AutoChooseQualityLevel ();
@@ -182,7 +182,7 @@ class GameQualitySettings extends MonoBehaviour
 				
                 if(ambientParticleObjects[k].name == "dust" || ambientParticleObjects[k].name == "leaves") continue;
 
-				ambientParticleObjects[k].SetActiveRecursively(ambientParticles);
+				ambientParticleObjects[k].SetActive(ambientParticles);
 			}
 		}
 		
@@ -203,7 +203,7 @@ class GameQualitySettings extends MonoBehaviour
 				var setting : AmbientParticleSettings = _ambientParticleObjectSettings[k] as AmbientParticleSettings;
 					
 				if(ambientParticleObjects[k] == null) continue;
-				if(!ambientParticleObjects[k].active) continue;			
+				if(!ambientParticleObjects[k].activeSelf) continue;			
 			
 				ambientParticleObjects[k].GetComponent.<ParticleEmitter>().minSize = setting.minSize*_particleQualityMultiplier;
 				ambientParticleObjects[k].GetComponent.<ParticleEmitter>().maxSize = setting.maxSize*_particleQualityMultiplier;
@@ -220,7 +220,7 @@ class GameQualitySettings extends MonoBehaviour
 		//If we are running the game first time, we need to take the current game quality settings
 		initializedGameSettings = true;
 		
-		overallQuality = QualitySettings.currentLevel; 
+		overallQuality = QualitySettings.GetQualityLevel(); 
 	
 		shadowDistance = QualitySettings.shadowDistance;
 	
@@ -572,9 +572,9 @@ class GameQualitySettings extends MonoBehaviour
 	
 	private function UpdateGameQuality()
 	{
-		if(QualitySettings.currentLevel != overallQuality)
+		if(QualitySettings.GetQualityLevel() != overallQuality)
 		{
-			QualitySettings.currentLevel = overallQuality;
+			QualitySettings.SetQualityLevel(overallQuality);
 			
 			initializedGameSettings = false;
 			
@@ -669,7 +669,7 @@ class GameQualitySettings extends MonoBehaviour
 					
                     if(ambientParticleObjects[k].name == "dust" || ambientParticleObjects[k].name == "leaves") continue;
 
-					ambientParticleObjects[k].SetActiveRecursively(ambientParticles);
+					ambientParticleObjects[k].SetActive(ambientParticles);
 				}
 			}
 		}

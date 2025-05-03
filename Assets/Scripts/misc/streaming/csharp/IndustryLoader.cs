@@ -7,7 +7,6 @@ public class IndustryLoader : MonoBehaviour {
     public GameObject endSceneTrigger ;
     private bool playing ;
 
-    private AssetBundle auxBundle;
     private WWW con;
     static public float industryProgress ;
     
@@ -39,7 +38,6 @@ public class IndustryLoader : MonoBehaviour {
 
         if (con != null && con.isDone)//progress >= 1.0)
         {
-            auxBundle = con.assetBundle;
             industryProgress = 1.0f;
             MainMenuScreen.goingToGame = true;
 
@@ -58,8 +56,6 @@ public class IndustryLoader : MonoBehaviour {
                 //progress = Application.GetStreamProgressForLevel("demo_industry");
                 yield return null;
             }
-
-            auxBundle = con.assetBundle;
 
             MainMenuScreen.goingToGame = true;
 

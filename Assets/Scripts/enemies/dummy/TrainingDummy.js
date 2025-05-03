@@ -89,7 +89,7 @@ class TrainingDummy extends MonoBehaviour
 		if(target == null) target = SoldierController.enemiesReference;
 		
 		shootsToDestroyPart = Mathf.Max(shootsToDestroyPart, 1);
-		failEffect.SetActiveRecursively(true);
+		failEffect.SetActive(true);
 		enableFailEffect = false;
 		dead = false;
 		timer = 0.0;
@@ -387,7 +387,7 @@ class TrainingDummy extends MonoBehaviour
 			if(dp.gameObject != weapon)
 			{
 				dp.gameObject.transform.parent = null;
-				dp.gameObject.active = false;
+				dp.gameObject.SetActive(false);
 				
 				for(var i : int = 0; i < dp.brokeParts.length; i++)
 				{
@@ -440,7 +440,7 @@ class TrainingDummy extends MonoBehaviour
 		{
 			if(dp.gameObject != weapon)
 			{
-				dp.gameObject.active = false;
+				dp.gameObject.SetActive(false);
 					
 				for(i = 0; i < dp.brokeParts.length; i++)
 				{
@@ -526,7 +526,7 @@ class TrainingDummy extends MonoBehaviour
 				if(dp.gameObject != weapon)
 				{
 					dp.gameObject.transform.parent = null;
-					dp.gameObject.active = false;
+					dp.gameObject.SetActive(false);
 					
 					for(var i : int = 0; i < dp.brokeParts.length; i++)
 					{
@@ -582,7 +582,7 @@ class TrainingDummy extends MonoBehaviour
 		{
 			if(dp.gameObject != weapon)
 			{
-				dp.gameObject.active = false;
+				dp.gameObject.SetActive(false);
 					
 				for(i = 0; i < dp.brokeParts.length; i++)
 				{
@@ -646,6 +646,6 @@ class TrainingDummy extends MonoBehaviour
 	
 	function InitializeMeshCollider(go : GameObject)
 	{
-		go.active = true;
+		go.SetActive(true);
 	}
 }

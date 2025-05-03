@@ -40,7 +40,7 @@ public class SoldierTarget : MonoBehaviour
 
     void Update()
     {
-        if (!soldierCam.gameObject.active)
+        if (!soldierCam.gameObject.activeSelf)
         {
             gui.color = new Color(0.5f, 0.5f, 0.5f, 0.0f);
             return;

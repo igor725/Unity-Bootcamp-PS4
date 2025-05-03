@@ -82,7 +82,7 @@ public class GameQualityService : MonoBehaviour
         var lod = 2;
         var billboards = 70.0f;
         var mTrees = 60;
-        var fPError = 5.0f;
+        //var fPError = 5.0f;
 
         switch (qualityLevel)
         {
@@ -97,7 +97,7 @@ public class GameQualityService : MonoBehaviour
                 lod = 2;
                 billboards = 10.0f;
                 mTrees = 5;
-                fPError = 50.0f;
+                //fPError = 50.0f;
                 _currentRenderingPath = RenderingPath.VertexLit;
                 _currentDepthTextureMode = DepthTextureMode.None;
                 //colorCorrection = false;
@@ -120,7 +120,7 @@ public class GameQualityService : MonoBehaviour
                 lod = 2;
                 billboards = 22.0f;
                 mTrees = 16;
-                fPError = 41.0f;
+                //fPError = 41.0f;
                 _currentRenderingPath = RenderingPath.Forward;
                 _currentDepthTextureMode = DepthTextureMode.None;
                 //colorCorrection = true;
@@ -143,7 +143,7 @@ public class GameQualityService : MonoBehaviour
                 lod = 1;
                 billboards = 34.0f;
                 mTrees = 27;
-                fPError = 32.0f;
+                //fPError = 32.0f;
                 _currentRenderingPath = RenderingPath.Forward;
                 _currentDepthTextureMode = DepthTextureMode.None;
                 //colorCorrection = true;
@@ -166,7 +166,7 @@ public class GameQualityService : MonoBehaviour
                 lod = 1;
                 billboards = 46.0f;
                 mTrees = 38;
-                fPError = 23.0f;
+                //fPError = 23.0f;
                 _currentRenderingPath = RenderingPath.Forward;
                 _currentDepthTextureMode = DepthTextureMode.None;
                 //colorCorrection = true;
@@ -189,7 +189,7 @@ public class GameQualityService : MonoBehaviour
                 lod = 0;
                 billboards = 58.0f;
                 mTrees = 49;
-                fPError = 14.0f;
+                //fPError = 14.0f;
                 _currentRenderingPath = RenderingPath.DeferredLighting;
                 _currentDepthTextureMode = DepthTextureMode.Depth;
                 //colorCorrection = true;
@@ -212,7 +212,7 @@ public class GameQualityService : MonoBehaviour
                 lod = 0;
                 billboards = 70.0f;
                 mTrees = 60;
-                fPError = 5.0f;
+                //fPError = 5.0f;
                 _currentRenderingPath = RenderingPath.DeferredLighting;
                 _currentDepthTextureMode = DepthTextureMode.Depth;
                 //colorCorrection = true;

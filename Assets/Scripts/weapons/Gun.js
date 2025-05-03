@@ -457,7 +457,7 @@ class Gun extends MonoBehaviour
 	
 	function HandleReloading()
 	{
-		if(Input.GetKeyDown(KeyCode.R) && !reloading)
+		if(Input.GetButtonDown("Fire3") && !reloading)
 		{
 			Reload();
 		}

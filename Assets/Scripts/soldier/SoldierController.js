@@ -210,15 +210,22 @@ class SoldierController extends MonoBehaviour
 		}
 		
 		//Check if the user wants the soldier to crouch
-		if(Input.GetKeyDown(KeyCode.LeftControl))
+		if(Input.GetButtonDown("Crouch"))
 		{
 			crouch = !crouch;
 			idleTimer = 0.0;
 		}
 		
 		crouch = crouch || dead;
+
+		if (Input.GetButtonDown("Sprint")) {
+			walk = !walk;
+			idleTimer = 0.0;
+		}
+
+		walk = walk || crouch || moveDir == Vector3.zero;
 		
 		//Check if the user wants the soldier to walk
-		walk = (!Input.GetKey(KeyCode.LeftShift) && !dead) || moveDir == Vector3.zero || crouch;
+		//walk = (!Input.GetButton("Sprint") && !dead) || moveDir == Vector3.zero || crouch;
 	}
 }

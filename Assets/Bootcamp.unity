@@ -159,8 +159,8 @@ Material:
     - _BumpReflectionStr: 0.735849
     - _ChromaticDispersion: 0.6792453
     - _ColorTextureOverlay: 0.45283014
-    - _Displacement: 0.13452828
-    - _DisplacementTiling: 2.1603773
+    - _Displacement: 0.005
+    - _DisplacementTiling: 1.571698
     - _FresnelPower: 10
     - _InvFade: 1.0933963
     - _InvFadeDisplacement: 0.5169811
@@ -172,7 +172,7 @@ Material:
     - _Shininess: 60
     - _ShoreFactor: 0.8226415
     - _ShoreFadeFactor: 0.8594338
-    - _Speed: 0.33962265
+    - _Speed: 0.34
     m_Colors:
     - _Color: {r: 0.8134328, g: 0.8982361, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}

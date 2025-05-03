@@ -27376,6 +27376,58 @@ Prefab:
       propertyPath: orbit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: maxRadius
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: sunShaftBlurRadius
+      value: 0.0956
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: resolution
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: radialBlurIterations
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: useSkyBoxAlpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: sunShaftIntensity
+      value: 1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: order
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: hollywoodFlareBlurIterations
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: lensflareMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: bloomThreshhold
+      value: 0.024999993
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: bloomIntensity
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400034, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
+      propertyPath: useSrcAlphaAsMask
+      value: 0.49899268
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69ccb1935e31c4abd9be967d0476f0b7, type: 2}
   m_IsPrefabParent: 0

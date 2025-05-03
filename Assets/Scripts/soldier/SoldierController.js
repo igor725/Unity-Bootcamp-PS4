@@ -218,14 +218,12 @@ class SoldierController extends MonoBehaviour
 		
 		crouch = crouch || dead;
 
+		//Check if the user wants the soldier to walk
 		if (Input.GetButtonDown("Sprint")) {
 			walk = !walk;
 			idleTimer = 0.0;
 		}
 
 		walk = walk || crouch || moveDir == Vector3.zero;
-		
-		//Check if the user wants the soldier to walk
-		//walk = (!Input.GetButton("Sprint") && !dead) || moveDir == Vector3.zero || crouch;
 	}
 }

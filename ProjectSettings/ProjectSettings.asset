@@ -437,14 +437,14 @@ PlayerSettings:
   ps4VideoOutInitialWidth: 1920
   ps4VideoOutBaseModeInitialWidth: 1920
   ps4VideoOutReprojectionRate: 0
-  ps4PronunciationXMLPath: 
-  ps4PronunciationSIGPath: 
+  ps4PronunciationXMLPath: Pronunciation/pronunciation.xml
+  ps4PronunciationSIGPath: Pronunciation/pronunciation.sig
   ps4BackgroundImagePath: 
   ps4StartupImagePath: 
   ps4SaveDataImagePath: 
   ps4SdkOverride: 
   ps4BGMPath: 
-  ps4ShareFilePath: 
+  ps4ShareFilePath: shareparam.json
   ps4ShareOverlayImagePath: 
   ps4PrivacyGuardImagePath: 
   ps4NPtitleDatPath: 

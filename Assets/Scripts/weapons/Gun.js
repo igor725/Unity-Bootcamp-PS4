@@ -86,7 +86,7 @@ class Gun extends MonoBehaviour
 	
 	public var shotLight : ShotLight;
 	
-	public var unlimited : boolean = true;
+	public var unlimited : boolean = false;
 	
 	private var timerToCreateDecal : float;
 	
@@ -439,16 +439,16 @@ class Gun extends MonoBehaviour
 	{
 		timerToCreateDecal -= Time.deltaTime;
 		
-		if(Input.GetButtonDown("Fire1") && currentRounds == 0 && !reloading && freeToShoot)
-		{
-			PlayOutOfAmmoSound();
-		}
+		//if(Input.GetButtonDown("Fire1") && currentRounds == 0 && !reloading && freeToShoot)
+		//{
+		//	PlayOutOfAmmoSound();
+		//}
 		
-		if(Input.GetButtonUp("Fire1"))
-		{
-			freeToShoot = true;
-			cBurst = burstRate;
-		}
+		//if(Input.GetButtonUp("Fire1"))
+		//{
+		//	freeToShoot = true;
+		//	cBurst = burstRate;
+		//}
 		
 		HandleReloading();
 		
@@ -456,12 +456,7 @@ class Gun extends MonoBehaviour
 	}
 	
 	function HandleReloading()
-	{
-		if(Input.GetButtonDown("Fire3") && !reloading)
-		{
-			Reload();
-		}
-		
+	{		
 		if(reloading)
 		{
 			reloadTimer -= Time.deltaTime;
@@ -480,6 +475,7 @@ class Gun extends MonoBehaviour
 	
 	function Reload()
 	{
+		if (reloading) return;
 		if(totalClips > 0 && currentRounds < clipSize)
 		{
 			PlayReloadSound();

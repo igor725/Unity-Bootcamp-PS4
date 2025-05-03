@@ -182,10 +182,10 @@ class SoldierController extends MonoBehaviour
 	function GetUserInputs()
 	{
 		//Check if the user if firing the weapon
-		fire = Input.GetButton("Fire1") && weaponSystem.currentGun.freeToShoot && !dead && !inAir;
+		fire = (Input.GetButton("Fire1") || Input.GetAxis("Fire1J") > 0.2f) && weaponSystem.currentGun.freeToShoot && !dead && !inAir;
 		
 		//Check if the user is aiming the weapon
-		aim = Input.GetButton("Fire2") && !dead;
+		aim = (Input.GetButton("Fire2") || Input.GetAxis("Fire2J") > 0.2f) && !dead;
 		
 		idleTimer += Time.deltaTime;
 		
@@ -207,6 +207,10 @@ class SoldierController extends MonoBehaviour
 			reloading = weaponSystem.currentGun.reloading;
 			currentWeaponName = weaponSystem.currentGun.gunName;
 			currentWeapon = weaponSystem.currentWeapon;
+
+			if (Input.GetButtonDown("Fire3")) {
+				weaponSystem.currentGun.Reload();
+			}
 		}
 		
 		//Check if the user wants the soldier to crouch

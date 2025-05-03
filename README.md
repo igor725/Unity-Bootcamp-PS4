@@ -12,6 +12,6 @@ This project uses upgraded Unity demo "Bootcamp" and makes it possible to build 
 - [ ] Fix tons of script warnings just about everywhere
 - [ ] Fix incompatible shaders
 - [x] Fix DoF
-- [ ] Fix radar drawing (Radar camera disabled for now, since it doesn't work correctly anyways)
+- [ ] Fix radar drawing
 - [ ] Open pause menu by pressing `Start` on controller
-- [ ] Fix gamepad controls
+- [x] Fix gamepad controls

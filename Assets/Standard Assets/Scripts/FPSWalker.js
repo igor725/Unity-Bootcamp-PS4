@@ -10,7 +10,8 @@ function Start()
 
 function Update() 
 {
-	moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+	// Declare moveDirection locally
+	var moveDirection : Vector3 = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 	moveDirection = cam.TransformDirection(moveDirection);
 	moveDirection *= speed;
 	controller.Move(moveDirection * Time.deltaTime);

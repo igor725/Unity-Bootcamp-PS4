@@ -26,7 +26,8 @@ function Update ()
 	if (!springJoint)
 	{
 		var go = new GameObject("Rigidbody dragger");
-		body = go.AddComponent.<Rigidbody>();
+		// Declare 'body' with 'var'
+		var body : Rigidbody = go.AddComponent.<Rigidbody>();
 		springJoint = go.AddComponent.<SpringJoint>();
 		body.isKinematic = true;
 	}

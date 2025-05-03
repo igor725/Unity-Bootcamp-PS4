@@ -37,9 +37,8 @@ SubShader {
 		#pragma vertex VertexLeaf
 		#pragma fragment FragmentLeaf
 		#pragma multi_compile_fwdbase_nolightmap
-		
-		
-		
+		#pragma exclude_renderers gles xbox360 ps3 ps4 // todo fixme
+
 		sampler2D _MainTex;
 		float4 _MainTex_ST;
 		
@@ -121,16 +120,18 @@ SubShader {
 		#pragma vertex vert_surf
 		#pragma fragment frag_surf
 		#pragma fragmentoption ARB_precision_hint_fastest
+		#pragma exclude_renderers gles xbox360 ps3 ps4 // todo fixme
 		#pragma multi_compile_shadowcaster
+
 		#include "HLSLSupport.cginc"
 		#include "UnityCG.cginc"
-		#include "Lighting.cginc"
+		#include "TreeVertexLit.cginc"
+		#include "TerrainEngine.cginc"
 
 		#define INTERNAL_DATA
 		#define WorldReflectionVector(data,normal) data.worldRefl
 		#line 22
 
-		#include "Tree.cginc"
 
 		sampler2D _ShadowTex;
 
@@ -176,10 +177,12 @@ SubShader {
 		#pragma fragment frag
 		#pragma fragmentoption ARB_precision_hint_fastest
 		#pragma multi_compile_shadowcollector
+		#pragma exclude_renderers gles xbox360 ps3 ps4 // todo fixme
 
 		#define SHADOW_COLLECTOR_PASS
 		#include "UnityCG.cginc"
 		#include "TerrainEngine.cginc"
+		#include "TreeVertexLit.cginc"
 
 		struct v2f {
 			V2F_SHADOW_COLLECTOR;
@@ -199,7 +202,7 @@ SubShader {
 
 		uniform sampler2D _MainTex;
 		uniform float _Cutoff;
-		uniform float4 _Color;
+		//uniform float4 _Color;
 
 		half4 frag (v2f i) : COLOR
 		{
@@ -229,6 +232,7 @@ SubShader {
 		#include "UnityCG.cginc"
 		#include "TreeVertexLit.cginc"
 		#include "TerrainEngine.cginc"
+
 		struct v2f {
 			float4 pos : SV_POSITION;
 			float4 color : COLOR;
@@ -259,7 +263,7 @@ SubShader {
 
 SubShader {
 	Tags { "RenderType"="TreeLeaf" }
-	Pass {		
+	Pass {
 		Material {
 			Diffuse (1,1,1,1)
 			Ambient (1,1,1,1)

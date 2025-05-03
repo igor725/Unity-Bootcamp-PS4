@@ -29,27 +29,28 @@ function OnRenderImage (source : RenderTexture, destination : RenderTexture)
 	
 	while (sorted.length) 
 	{
-		var indexToUse : int = 0;
-		var orderValue : int = -1;
-		for(i = 0; i < sorted.length; i++) {
-			if(sorted[i].order > orderValue) {
-				orderValue = sorted[i].order;	
-				indexToUse = i;
-			}
-		}
-        
-        var effect : PostEffectsBase = sorted[indexToUse];
-		if (effect.PreferRenderImage3())
-        {
-            effect.OnRenderImage3(_tex[index], _tex[1-index]);
-        }
-        else
-        {
-            effect.OnRenderImage2(_tex[index], _tex[1-index]);
-            index = 1-index;
-        }
-		
-		sorted.RemoveAt(indexToUse);
+	    var indexToUse : int = 0;
+	    var orderValue : int = -1;
+	    for(i = 0; i < sorted.length; i++) {
+	        var currentEffect : PostEffectsBase = sorted[i] as PostEffectsBase;
+	        if(currentEffect.order > orderValue) {
+	            orderValue = currentEffect.order;    
+	            indexToUse = i;
+	        }
+	    }
+	    
+	    var effect : PostEffectsBase = sorted[indexToUse] as PostEffectsBase;
+	    if (effect.PreferRenderImage3())
+	    {
+	        effect.OnRenderImage3(_tex[index], _tex[1-index]);
+	    }
+	    else
+	    {
+	        effect.OnRenderImage2(_tex[index], _tex[1-index]);
+	        index = 1-index;
+	    }
+	    
+	    sorted.RemoveAt(indexToUse);
 	}
 	
     Graphics.Blit(_tex[index], destination);

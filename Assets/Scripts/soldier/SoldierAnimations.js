@@ -30,8 +30,8 @@ class SoldierAnimations extends MonoBehaviour
 	
 	function OnEnable()
 	{
-		soldier = gameObject.GetComponent("SoldierController");
-		motor = gameObject.GetComponent("CharacterMotor");
+		soldier = gameObject.GetComponent.<SoldierController>();
+		motor = gameObject.GetComponent.<CharacterMotor>();
 		
 		SetAnimationProperties();
 	}
@@ -158,7 +158,7 @@ class SoldierAnimations extends MonoBehaviour
 		currentWeapon = soldier.currentWeapon;
 		moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		
-		inAir = !GetComponent("CharacterController").isGrounded;
+		inAir = !GetComponent.<CharacterController>().isGrounded;
 	}
 		
 	//Method that initializes animations properties

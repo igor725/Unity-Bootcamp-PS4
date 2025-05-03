@@ -46,7 +46,7 @@ class WaterInteractions extends MonoBehaviour
 	
 	function Start()
 	{
-		controller = soldier.GetComponent("SoldierController");
+		controller = soldier.GetComponent.<SoldierController>();
 		
 		currentAmount = 1.0;
 		

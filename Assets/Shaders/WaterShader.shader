@@ -193,20 +193,20 @@ half4 frag_full (v2f i) : COLOR
 	float2 refrOffset = offset * i.projPos.z * _Refractivity * fade2.y;	
 		
 	// 2 grab pass samples to correct false refraction
-	float4 grabPass = tex2Dproj(_GrabTexture, refractionUv + half4(refrOffset,0,0));
-	float3 refrColor  = tex2Dproj(_GrabTexture, refractionUv + half4(refrOffset,0,0) * (grabPass.a));
+	float4 grabPass = tex2Dproj(_GrabTexture, refractionUv + half4(refrOffset,0.0f,0.0f));
+	float3 refrColor  = tex2Dproj(_GrabTexture, refractionUv + half4(refrOffset,0.0f,0.0f) * (grabPass.a));
 					
 	// REFLECTION
 	float3 reflectVector = normalize(reflect(i.viewDirWorld,worldNormal));
 	half4 reflColor = texCUBE(_CubeTex, reflectVector);
-	reflColor = lerp(0.75,reflColor, saturate(fade2.y));
+	reflColor = lerp(0.75f,reflColor, saturate(fade2.y));
 	
 	reflectVector = normalize(reflectVector);
 					
 	// FRESNEL CALCS
-	float fcbias = 0.20373;
-	float facing = saturate(0.8 - max(dot(-i.viewDirWorld,worldNormal), 0.0));
-	float refl2Refr = max(fcbias + (1.0-fcbias) * pow(facing, _FresnelPower), 0);				
+	float fcbias = 0.20373f;
+	float facing = saturate(0.8f - max(dot(-i.viewDirWorld,worldNormal), 0.0f));
+	float refl2Refr = max(fcbias + (1.0f-fcbias) * pow(facing, _FresnelPower), 0.0f);				
 					
 	color.rgb *= (lerp(refrColor,reflColor, refl2Refr)); 
 	

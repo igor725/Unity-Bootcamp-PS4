@@ -20,6 +20,8 @@
 	
 	function OnFootStrike () 
 	{
+		var volume : float;
+
 		if(Time.time < 0.5) return;
 		
 		if(cc != null)
@@ -37,6 +39,7 @@
 	function GetAudio() : AudioClip
 	{
 		var hit : RaycastHit;
+		var volume : float;
 		
 		//Debug.DrawRay(t.position + new Vector3(0, 0.5, 0), -Vector3.up * 5.0);
 		

@@ -94,8 +94,8 @@ class SoldierController extends MonoBehaviour
 		aim = false;
 		reloading = false;
 
-		controller = gameObject.GetComponent("CharacterController");
-		motor = gameObject.GetComponent("CharacterMotor");
+		controller = gameObject.GetComponent.<CharacterController>();
+		motor = gameObject.GetComponent.<CharacterMotor>();
 	}
 	
 	function OnEnable()
@@ -106,7 +106,7 @@ class SoldierController extends MonoBehaviour
         }
 
         moveDir = Vector3.zero;
-		headLookController = gameObject.GetComponent("HeadLookController");
+		headLookController = gameObject.GetComponent.<HeadLookController>();
 		headLookController.enabled = true;
         walk = true;
 		aim = false;

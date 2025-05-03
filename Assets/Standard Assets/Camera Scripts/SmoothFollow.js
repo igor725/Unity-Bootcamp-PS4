@@ -27,6 +27,13 @@ function Update () {
 	if (!target)
 		return;
 	
+	// Declare variables
+	var wantedRotationAngle : float;
+	var wantedHeight : float;
+	var currentRotationAngle : float;
+	var currentHeight : float;
+	var currentRotation : Quaternion;
+	
 	// Calculate the current rotation angles
 	wantedRotationAngle = target.eulerAngles.y;
 	wantedHeight = target.position.y + height;

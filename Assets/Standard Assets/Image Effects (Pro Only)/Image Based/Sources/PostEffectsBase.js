@@ -20,12 +20,6 @@ class PostEffectsBase extends MonoBehaviour
 	}
 	
 	function CheckSupport() : boolean {
-		// Disable if we don't support image effectsor render textures
-		if (!SystemInfo.supportsImageEffects || !SystemInfo.supportsRenderTextures) {
-			// Debug.LogError ("Image effects or render textures are not supported.");
-			ReportNotSupported ();
-			return false;
-		}		
 		return true;
 	}
 	

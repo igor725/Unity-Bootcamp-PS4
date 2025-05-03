@@ -42,6 +42,8 @@ class EdgeDetectEffectNormalsEditor extends Editor
     		
     function OnInspectorGUI ()
     {        
+    	var edgeTarget = target as EdgeDetectEffectNormals;
+
     	EditorGUILayout.PropertyField (highQuality, new GUIContent("Advanced"));
     	
     	if (highQuality.boolValue) {
@@ -72,10 +74,10 @@ class EdgeDetectEffectNormalsEditor extends Editor
     	
     	showShaders = EditorGUILayout.Toggle ("Show assigned shaders", showShaders);
     	if (showShaders) {
- 	    	target.edgeDetectHqShader = EditorGUILayout.ObjectField(" shader",target.edgeDetectHqShader,Shader as System.Type);
- 			target.edgeDetectShader = EditorGUILayout.ObjectField(" shader",target.edgeDetectShader,Shader as System.Type);
- 			target.sepBlurShader = EditorGUILayout.ObjectField(" shader",target.sepBlurShader,Shader as System.Type);
- 			target.edgeApplyShader = EditorGUILayout.ObjectField(" shader",target.edgeApplyShader,Shader as System.Type);
+ 	    	edgeTarget.edgeDetectHqShader = EditorGUILayout.ObjectField(" shader",edgeTarget.edgeDetectHqShader,Shader as System.Type);
+ 			edgeTarget.edgeDetectShader = EditorGUILayout.ObjectField(" shader",edgeTarget.edgeDetectShader,Shader as System.Type);
+ 			edgeTarget.sepBlurShader = EditorGUILayout.ObjectField(" shader",edgeTarget.sepBlurShader,Shader as System.Type);
+ 			edgeTarget.edgeApplyShader = EditorGUILayout.ObjectField(" shader",edgeTarget.edgeApplyShader,Shader as System.Type);
     	}
     	
 

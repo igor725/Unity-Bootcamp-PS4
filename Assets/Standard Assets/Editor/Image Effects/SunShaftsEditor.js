@@ -39,17 +39,18 @@ class SunShaftsEditor extends Editor
     		
     function OnInspectorGUI ()
     {        
+    	var sunTarget = target as SunShafts;
 		var oldVal : boolean = useDepthTexture.boolValue;
 		EditorGUILayout.PropertyField (useDepthTexture, new GUIContent("Use Depth Texture"));
 		
-		GUILayout.Label(" Camera depth texture mode: "+target.camera.depthTextureMode);
+		GUILayout.Label(" Camera depth texture mode: "+sunTarget.GetComponent.<Camera>().depthTextureMode);
 		
 		var newVal : boolean = useDepthTexture.boolValue;
 		if(newVal != oldVal) {
 			if(newVal)
-				target.camera.depthTextureMode |= DepthTextureMode.Depth;
+				sunTarget.GetComponent.<Camera>().depthTextureMode |= DepthTextureMode.Depth;
 			else
-				target.camera.depthTextureMode &= ~DepthTextureMode.Depth;
+				sunTarget.GetComponent.<Camera>().depthTextureMode &= ~DepthTextureMode.Depth;
 		}
 		
     	EditorGUILayout.PropertyField (resolution,  new GUIContent("Resolution"));
@@ -58,11 +59,11 @@ class SunShaftsEditor extends Editor
     
     	EditorGUILayout.PropertyField (sunTransform, new GUIContent("Sun caster", "Chose a transform that acts as a root point for the produced sun shafts"));
     	
-    	if(target.sunTransform && target.camera) {
+    	if(sunTarget.sunTransform && sunTarget.GetComponent.<Camera>()) {
     		if( GUILayout.Button("Align to viewport center")) {
-    			var ray : Ray = target.camera.ViewportPointToRay(Vector3(0.5,0.5,0));
-    			target.sunTransform.position = ray.origin + ray.direction * 500.0;
-    			target.sunTransform.LookAt(target.transform);
+    			var ray : Ray = sunTarget.GetComponent.<Camera>().ViewportPointToRay(Vector3(0.5,0.5,0));
+    			sunTarget.sunTransform.position = ray.origin + ray.direction * 500.0;
+    			sunTarget.sunTransform.LookAt(sunTarget.transform);
     		}
     	}
     	

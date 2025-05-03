@@ -94,7 +94,7 @@ class SoldierCamera extends MonoBehaviour
 		cShake = 0.0;
 		cShakeSpeed = shakeSpeed;
 		
-        _depthOfFieldEffect = gameObject.GetComponent("DepthOfField") as DepthOfField;
+        _depthOfFieldEffect = gameObject.GetComponent.<DepthOfField>() as DepthOfField;
 
 		if(target == null || soldier == null)
 		{ 
@@ -112,7 +112,7 @@ class SoldierCamera extends MonoBehaviour
 	    
 	    originalSoldierRotation = soldier.rotation;
 	    
-	    soldierController = soldier.GetComponent("SoldierController");
+	    soldierController = soldier.GetComponent.<SoldierController>();
 	    
 	    targetDistance = normalDistance;
 	    
